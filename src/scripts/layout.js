@@ -16,8 +16,17 @@ let initialX = null;
 let initialY = null;
 
 const getPosition = (index) => {
-  const row = Math.floor(index / (rowsLength + 1));
+  // 11 / (15)
+  const row = Math.floor(index / columnsLength);
   const column = index - row * columnsLength;
+
+  console.log({
+    index,
+    rowsLength,
+    columnsLength,
+    row,
+    column,
+  });
 
   const y1 = initialY + row * row_size;
   const y2 = y1 + row_size;
