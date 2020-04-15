@@ -15,20 +15,6 @@ let rowsLength = null;
 let initialX = null;
 let initialY = null;
 
-const defineGrid = () => {
-  initialX = (innerWidth % column_size) / 2;
-  columnsLength = Math.floor(innerWidth / column_size);
-
-  initialY = (innerHeight % row_size) / 2;
-  rowsLength = Math.floor(innerHeight / row_size);
-
-  grid = {
-    indexes: [0, columnsLength * rowsLength - 1],
-    columnsLength,
-    rowsLength,
-  };
-};
-
 const getPosition = (index) => {
   const row = Math.floor(index / (rowsLength + 1));
   const column = index - row * columnsLength;
@@ -39,7 +25,7 @@ const getPosition = (index) => {
   const x1 = initialX + column * column_size;
   const x2 = x1 + column_size;
 
-  return Position.create(x1, x2, y1, y2);
+  return Position.create(x1, y1, x2, y2);
 };
 
 const getNextPositionFrom = (index) => {
@@ -58,18 +44,26 @@ const getPrevPositionFrom = (index) => {
   return getPosition(nextIndex);
 };
 
-const getGrid = () => grid;
-
 const init = () => {
-  defineGrid();
+  initialX = (innerWidth % column_size) / 2;
+  columnsLength = Math.floor(innerWidth / column_size);
+
+  initialY = (innerHeight % row_size) / 2;
+  rowsLength = Math.floor(innerHeight / row_size);
+
+  grid = {
+    indexes: [0, columnsLength * rowsLength - 1],
+    columnsLength,
+    rowsLength,
+  };
+
+  return grid;
 };
 
-export default {
-  getGrid,
-
+export default Object.freeze({
   init,
 
   getPosition,
   getNextPositionFrom,
   getPrevPositionFrom,
-};
+});

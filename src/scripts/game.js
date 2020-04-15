@@ -8,13 +8,13 @@ const { mobs, draw } = Mob;
 
 const init = () => {
   console.log("iniciou");
-  Layout.init();
 
-  const grid = Layout.getGrid();
+  const grid = Layout.init();
 
   console.log(Layout.getPosition(0));
+  console.log(Layout.getNextPositionFrom(0));
 };
 
-export default {
+export default Object.freeze({
   init,
-};
+});
