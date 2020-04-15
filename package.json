@@ -1,7 +1,7 @@
 {
-  "name": "vanilla-parcel-boilerplate",
+  "name": "space-invaders-game",
   "version": "1.0.0",
-  "description": "Simple workflow starter for building vanilla JS apps",
+  "description": "A classic Space Invaders implementation with HTML5 Canvas Engine",
   "main": "index.js",
   "scripts": {
     "dev": "rm -rf ./development && rm -rf ./.cache && parcel public/index.html --out-dir development -p 3000",
@@ -9,17 +9,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bradtraversy/vanilla-parcel-boilerplate.git"
+    "url": "git+https://github.com/LaksCastro/space-invaders.git"
   },
   "keywords": [
-    "parcel"
+    "space",
+    "invaders",
+    "game",
+    "canvas",
+    "html5",
+    "html",
+    "engine",
+    "js",
+    "javascript"
   ],
-  "author": "Brad Traversy",
+  "author": "Laks Castro",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bradtraversy/vanilla-parcel-boilerplate/issues"
+    "url": "https://github.com/LaksCastro/space-invaders/issues"
   },
-  "homepage": "https://github.com/bradtraversy/vanilla-parcel-boilerplate#readme",
+  "homepage": "https://github.com/LaksCastro/space-invaders#readme",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-transform-runtime": "^7.9.0",
