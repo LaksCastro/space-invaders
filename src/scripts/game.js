@@ -4,8 +4,6 @@ import Mob from "./mob";
 import Layout from "./layout";
 import State from "./state";
 
-const { mobs, draw } = Mob;
-
 const init = () => {
   console.log("iniciou");
 

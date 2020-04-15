@@ -25,7 +25,7 @@ const getPosition = (index) => {
   const x1 = initialX + column * column_size;
   const x2 = x1 + column_size;
 
-  return Position.create(x1, y1, x2, y2);
+  return Position.createByCoord(x1, y1, x2, y2);
 };
 
 const getNextPositionFrom = (index) => {
