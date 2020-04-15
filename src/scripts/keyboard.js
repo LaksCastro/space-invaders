@@ -27,5 +27,3 @@ const init = (listeners) => {
 const destroy = () => document.removeEventListener("keydown", listener);
 
 export { init, destroy };
-
-export default (listeners) => {};
