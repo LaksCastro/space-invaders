@@ -1,4 +1,5 @@
-import Position from "./position";
+import Vector2D from "./vector2D";
+import Vector0D from "./vector0D";
 
 // =============================
 // VAR WITH MAIN METADATA
@@ -34,7 +35,7 @@ const getPosition = (index) => {
   const x1 = initialX + column * column_size;
   const x2 = x1 + column_size;
 
-  return Position.createByCoord(x1, y1, x2, y2);
+  return Vector2D.createByCoord(Vector0D(x1, y1), Vector0D(x2, y2));
 };
 const getNextPositionFrom = (index) => {
   const nextIndex = index + 1;

@@ -91,10 +91,12 @@ const mobs = {
   },
 };
 
-const draw = (mob = mobs.PURPLE, initialX = 0, initialY = 0) => {
+const draw = (mob = mobs.PURPLE, point) => {
+  const { x, y } = point;
+
   const { draw } = mob;
 
-  draw(initialX, initialY);
+  draw(x, y);
 };
 
 export default Object.freeze({

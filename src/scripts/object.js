@@ -53,10 +53,12 @@ const objects = {
   },
 };
 
-const draw = (object, initialX = 0, initialY = 0) => {
+const draw = (object, point) => {
+  const { x, y } = point;
+
   const { draw } = object;
 
-  draw(ctx, initialX, initialY);
+  draw(x, y);
 };
 
 export default Object.freeze({

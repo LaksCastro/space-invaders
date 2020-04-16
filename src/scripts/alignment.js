@@ -1,4 +1,5 @@
-import Position from "./position";
+import Vector0D from "./vector0D";
+import Vector2D from "./vector2D";
 
 // ==========================================
 // RECEIVE A CONTAINER BY X,Y POSITION
@@ -22,7 +23,10 @@ const align = (container, contentSize) => {
   const contentY1 = containerY1 + (containerH - contentH) / 2;
   const contentY2 = contentY1 + contentH;
 
-  return Position.createByCoord(contentX1, contentY1, contentX2, contentY2);
+  return Vector2D.createByCoord(
+    Vector0D(contentX1, contentY1),
+    Vector0D(contentX2, contentY2)
+  );
 };
 
 export default Object.freeze({

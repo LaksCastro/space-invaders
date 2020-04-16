@@ -4,29 +4,26 @@ let player = null;
 
 let playerShoot = null;
 
-let centerRow = null;
-let centerColumn = null;
-
-let rows = null;
-
 let enemies = null;
 
 let enemiesShoot = null;
 
-const getState = () => ({
+const get = () => ({
   player,
   playerShoot,
   enemies,
   enemiesShoot,
 });
 
-const setState = (newState) => {
+const set = (newState = {}) => {
+  const state = Object.assign({}, get(), newState);
+
   const {
-    player: newPlayerState = player,
-    playerShoot: newPlayerShootState = playerShoot,
-    enemies: newEnemiesState = enemies,
-    enemiesShoot: newEnemiesShootState = enemiesShoot,
-  } = newState;
+    player: newPlayerState,
+    playerShoot: newPlayerShootState,
+    enemies: newEnemiesState,
+    enemiesShoot: newEnemiesShootState,
+  } = state;
 
   player = newPlayerState;
   playerShoot = newPlayerShootState;
@@ -71,8 +68,8 @@ const setState = (newState) => {
 // };
 
 export default Object.freeze({
-  setState,
-  getState,
+  set,
+  get,
 
   player,
   playerShoot,

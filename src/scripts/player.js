@@ -11,7 +11,9 @@ const height = pixels * 5;
 // ================
 // TO DRAW PLAYER
 // ================
-const draw = (initialX = 0, initialY = 0) => {
+const draw = (point) => {
+  const { x: initialX, y: initialY = 0 } = point;
+
   // Draw Player
   ctx.beginPath();
   ctx.fillStyle = "#fff";

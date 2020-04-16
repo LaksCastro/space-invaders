@@ -1,4 +1,4 @@
-import Position from "./position";
+import Vector2D from "./vector2D";
 
 import Layout from "./layout";
 
@@ -18,19 +18,22 @@ const operations = {
   bottom: (x, y) => [x, y + velocity],
 };
 
-const to = (
-  userConfig = {
-    currentPosition: Position.createByCoord(0, 0, 0, 0),
-    direction: directions.RIGHT,
-    velocity: 2,
-  }
-) => {
+const defaultConfig = {
+  currentPosition: Vector2D.createByCoord(Vector0D(0, 0), Vector0D(0, 0)),
+  direction: directions.RIGHT,
+  velocity: 2,
+};
+const to = (userConfig = {}) => {
   const { limitX, limitY } = Layout;
 
   const [startX, endX] = limitX();
   const [startY, endY] = limitY();
 
-  const { velocity: vel, direction, currentPosition } = userConfig;
+  const { direction, velocity: vel, currentPosition } = Object.assign(
+    {},
+    defaultConfig,
+    userConfig
+  );
 
   velocity = vel;
 
@@ -48,10 +51,9 @@ const to = (
   if (newX1 < startX) return currentPosition;
   if (newX2 > endX) return currentPosition;
   if (newY1 < startY) return currentPosition;
-
   if (newY2 > endY) return currentPosition;
 
-  return Position.createByCoord(newX1, newY1, newX2, newY2);
+  return Vector2D.createByCoord(Vector0D(newX1, newY1), Vector0D(newX2, newY2));
 };
 
 export default Object.freeze({

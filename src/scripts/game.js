@@ -6,7 +6,7 @@ import Keyboard from "./keyboard";
 
 import Mob from "./mob";
 import Layout from "./layout";
-import Position from "./position";
+import Vector2D from "./vector2D";
 import State from "./state";
 import Player from "./player";
 import Move from "./move";
@@ -16,37 +16,47 @@ import move from "./move";
 
 let grid = null;
 
-const render = () => {};
+const render = () => {
+  const { player } = State.get();
+
+  Player.draw(player.position.x[0], player.position.y[0]);
+};
 
 const init = () => {
   Layout.init();
-  State.init();
-
   grid = Layout.getGrid();
-  let userPos = null;
+
+  let playerPosition = null;
 
   const containerPosition = Layout.getPosition(Layout.bottomCenter());
-  const { x, y } = Alignment.align(
-    containerPosition,
-    Position.createBySize(Player.width, Player.height)
-  );
-  userPos = Position.createByCoord(
-    x[0],
-    y[0],
-    x[0] + Player.width,
-    y[0] + Player.height
-  );
-  Player.draw(x[0], y[0]);
 
-  const mob = Mob.mobs.PURPLE;
-  for (let a = 0; a < grid.indexes[1] / 2; a++) {
-    const pos = Layout.getPosition(a);
-    const { x, y } = Alignment.align(
-      pos,
-      Position.createBySize(mob.width, mob.height)
-    );
-    Mob.draw(mob, x[0], y[0]);
-  }
+  playerPosition = Alignment.align(
+    containerPosition,
+    Vector2D.createBySize(Player.width, Player.height)
+  );
+
+  State.set({
+    player: {
+      isShooting: false,
+      position: playerPosition,
+      centerPosition: Alignment.align(
+        playerPosition,
+        Position.createBySize(5, 5)
+      ),
+    },
+  });
+
+  render();
+
+  // const mob = Mob.mobs.PURPLE;
+  // for (let a = 0; a < grid.indexes[1] / 2; a++) {
+  //   const pos = Layout.getPosition(a);
+  //   const { x, y } = Alignment.align(
+  //     pos,
+  //     Position.createBySize(mob.width, mob.height)
+  //   );
+  //   Mob.draw(mob, x[0], y[0]);
+  // }
   Keyboard.init({
     left: _.throttle(
       () =>
