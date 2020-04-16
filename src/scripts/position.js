@@ -1,6 +1,6 @@
-// ====================================
-// NEEDED FILE TO NORMALIZE POSITIONS
-// ====================================
+// ==========================================
+// NEEDED FILE TO NORMALIZE POSITIONS FORMAT
+// ==========================================
 
 const createByCoord = (x1, y1, x2, y2) => ({
   x: [x1, x2],
@@ -24,8 +24,8 @@ const sizeOf = (position) => {
   return createBySize(width, height);
 };
 
-export default {
+export default Object.freeze({
   createByCoord,
   createBySize,
   sizeOf,
-};
+});
