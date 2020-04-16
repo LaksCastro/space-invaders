@@ -32,28 +32,18 @@ const set = (newState = {}) => {
 };
 
 // const init = () => {
-//   const grid = Layout.getGrid();
-
-//   player = {
-//     position: Layout.getPosition(Layout.bottomCenter()),
-//     isShooting: false,
-//     centerPosition: {},
-//   };
-
-//   playerShoot = {
-//     position: null,
-//   };
 
 //   centerRow = Math.floor(grid.rowsLength / 2);
 //   centerColumn = Layout.centerColumn();
 
-//   console.log(centerRow);
 //   rows = Array.from({ length: centerRow + 1 }).map(() => {
 //     const row = centerRow;
 //     centerRow--;
 //     return row;
 //   });
+
 //   console.log(rows);
+
 //   enemies = [
 //     {
 //       id: "8r9023485",
