@@ -60,10 +60,35 @@ const init = () => {
   return grid;
 };
 
+const centerColumn = () => Math.floor(columnsLength / 2);
+const centerRow = () => Math.floor(rowsLength / 2) * columnsLength;
+const bottomRow = () => Math.floor(rowsLength - 1) * columnsLength;
+
+const centerCenter = () => centerRow() + centerColumn();
+
+const bottomLeft = () => bottomRow();
+const bottomRight = () => bottomRow() + (columnsLength - 1);
+
+const topLeft = () => 0;
+const topRight = () => columnsLength - 1;
+
+const bottomCenter = () => bottomRow() + centerColumn();
+const topCenter = () => centerColumn();
+
 export default Object.freeze({
   init,
 
   getPosition,
   getNextPositionFrom,
   getPrevPositionFrom,
+
+  centerColumn,
+  centerRow,
+  centerCenter,
+  bottomRight,
+  bottomLeft,
+  topRight,
+  topLeft,
+  bottomCenter,
+  topCenter,
 });
