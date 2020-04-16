@@ -52,6 +52,11 @@ const getPrevPositionFrom = (index) => {
 };
 
 // =============================
+// RETURN UPDATED GRID STATE
+// =============================
+const getGrid = () => grid;
+
+// =============================
 // FUNCTION TO INIT LAYOUT LOGIC
 // =============================
 const init = () => {
@@ -62,12 +67,10 @@ const init = () => {
   rowsLength = Math.floor(innerHeight / row_size);
 
   grid = {
-    indexes: [0, columnsLength * rowsLength - 1],
+    indexes: [0, columnsLength * rowsLength],
     columnsLength,
     rowsLength,
   };
-
-  return grid;
 };
 
 // ======================
@@ -96,6 +99,7 @@ const topCenter = () => centerColumn();
 
 export default Object.freeze({
   init,
+  getGrid,
 
   getPosition,
   getNextPositionFrom,

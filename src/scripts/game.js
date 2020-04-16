@@ -1,10 +1,8 @@
 import _ from "lodash";
 
-import ctx from "./canvas";
+import ctx, { clear } from "./canvas";
 
 import Keyboard from "./keyboard";
-
-import { clear } from "./canvas";
 
 import Mob from "./mob";
 import Layout from "./layout";
@@ -18,9 +16,13 @@ import move from "./move";
 
 let grid = null;
 
-const init = () => {
-  grid = Layout.init();
+const render = () => {};
 
+const init = () => {
+  Layout.init();
+  State.init();
+
+  grid = Layout.getGrid();
   let userPos = null;
 
   const containerPosition = Layout.getPosition(Layout.bottomCenter());
@@ -51,7 +53,7 @@ const init = () => {
         requestAnimationFrame(() => {
           userPos = Move.to({
             direction: "left",
-            velocity: 20,
+            velocity: 1,
             currentPosition: userPos,
           });
           clear();
@@ -64,7 +66,7 @@ const init = () => {
             );
             Mob.draw(mob, x[0], y[0]);
           }
-          for (let i = 0; i <= grid.indexes[1]; i++) {
+          for (let i = 0; i < grid.indexes[1]; i++) {
             ctx.beginPath();
 
             ctx.strokeStyle = "#f1f1f1";
@@ -92,7 +94,7 @@ const init = () => {
         requestAnimationFrame(() => {
           userPos = Move.to({
             direction: "right",
-            velocity: 20,
+            velocity: 1,
             currentPosition: userPos,
           });
           clear();
@@ -105,7 +107,7 @@ const init = () => {
             );
             Mob.draw(mob, x[0], y[0]);
           }
-          for (let i = 0; i <= grid.indexes[1]; i++) {
+          for (let i = 0; i < grid.indexes[1]; i++) {
             ctx.beginPath();
 
             ctx.strokeStyle = "#f1f1f1";

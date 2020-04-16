@@ -2,8 +2,6 @@ import ctx from "./canvas";
 
 import mobs_paths from "../data/mob";
 
-import Position from "./position";
-
 const MOB_PIXEL_SIZE = 5;
 
 const mobs = {
@@ -11,7 +9,7 @@ const mobs = {
     pixels: 8,
     width: 40,
     height: 40,
-    draw: (ctx, initialX, initialY) => {
+    draw: (initialX, initialY) => {
       // Draw Mob Body
       ctx.beginPath();
       ctx.fillStyle = "#7855F5";
@@ -29,8 +27,8 @@ const mobs = {
       // Draw Mob Eyes
       ctx.beginPath();
       ctx.fillStyle = "#020402";
-      ctx.rect(initialX + 10, initialY + 15, 5, 5);
-      ctx.rect(initialX + 25, initialY + 15, 5, 5);
+      ctx.rect(initialX + 10, initialY + 15, MOB_PIXEL_SIZE, MOB_PIXEL_SIZE);
+      ctx.rect(initialX + 25, initialY + 15, MOB_PIXEL_SIZE, MOB_PIXEL_SIZE);
       ctx.closePath();
       ctx.fill();
     },
@@ -39,7 +37,7 @@ const mobs = {
     pixels: 11,
     width: 55,
     height: 40,
-    draw: (ctx, initialX, initialY) => {
+    draw: (initialX, initialY) => {
       // Draw Mob Body
       ctx.beginPath();
       ctx.fillStyle = "#05FD7D";
@@ -57,8 +55,8 @@ const mobs = {
       // Draw Mob Eyes
       ctx.beginPath();
       ctx.fillStyle = "#020402";
-      ctx.rect(initialX + 15, initialY + 20, 5, 5);
-      ctx.rect(initialX + 35, initialY + 20, 5, 5);
+      ctx.rect(initialX + 15, initialY + 20, MOB_PIXEL_SIZE, MOB_PIXEL_SIZE);
+      ctx.rect(initialX + 35, initialY + 20, MOB_PIXEL_SIZE, MOB_PIXEL_SIZE);
       ctx.closePath();
       ctx.fill();
     },
@@ -67,7 +65,7 @@ const mobs = {
     pixels: 12,
     width: 60,
     height: 40,
-    draw: (ctx, initialX, initialY) => {
+    draw: (initialX, initialY) => {
       // Draw Mob Body
       ctx.beginPath();
       ctx.fillStyle = "#FE4E60";
@@ -85,8 +83,8 @@ const mobs = {
       // Draw Mob Eyes
       ctx.beginPath();
       ctx.fillStyle = "#020402";
-      ctx.rect(initialX + 15, initialY + 15, 10, 5);
-      ctx.rect(initialX + 35, initialY + 15, 10, 5);
+      ctx.rect(initialX + 15, initialY + 15, 10, MOB_PIXEL_SIZE);
+      ctx.rect(initialX + 35, initialY + 15, 10, MOB_PIXEL_SIZE);
       ctx.closePath();
       ctx.fill();
     },
@@ -96,7 +94,7 @@ const mobs = {
 const draw = (mob = mobs.PURPLE, initialX = 0, initialY = 0) => {
   const { draw } = mob;
 
-  draw(ctx, initialX, initialY);
+  draw(initialX, initialY);
 };
 
 export default Object.freeze({
