@@ -13,7 +13,7 @@ const align = (container, contentSize) => {
   const [containerX1] = x;
   const [containerY1] = y;
 
-  const { width: containerW, height: containerH } = Position.sizeOf(container);
+  const { width: containerW, height: containerH } = Vector2D.sizeOf(container);
 
   const { width: contentW, height: contentH } = contentSize;
 

@@ -4,22 +4,26 @@ import ctx, { clear } from "./canvas";
 
 import Keyboard from "./keyboard";
 
-import Mob from "./mob";
-import Layout from "./layout";
 import Vector2D from "./vector2D";
-import State from "./state";
+import Vector0D from "./vector0D";
+
+import Mob from "./mob";
 import Player from "./player";
-import Move from "./move";
 
 import Alignment from "./alignment";
-import move from "./move";
+
+import Layout from "./layout";
+
+import State from "./state";
+
+import Move from "./move";
 
 let grid = null;
 
 const render = () => {
   const { player } = State.get();
 
-  Player.draw(player.position.x[0], player.position.y[0]);
+  Player.draw(Vector0D(player.position.x[0], player.position.y[0]));
 };
 
 const init = () => {
@@ -41,7 +45,7 @@ const init = () => {
       position: playerPosition,
       centerPosition: Alignment.align(
         playerPosition,
-        Position.createBySize(5, 5)
+        Vector2D.createBySize(5, 5)
       ),
     },
   });
