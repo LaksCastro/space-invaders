@@ -36,7 +36,15 @@ const init = () => {
   );
   Player.draw(x[0], y[0]);
 
-  console.log(userPos);
+  const mob = Mob.mobs.PURPLE;
+  for (let a = 0; a < grid.indexes[1] / 2; a++) {
+    const pos = Layout.getPosition(a);
+    const { x, y } = Alignment.align(
+      pos,
+      Position.createBySize(mob.width, mob.height)
+    );
+    Mob.draw(mob, x[0], y[0]);
+  }
   Keyboard.init({
     left: _.throttle(
       () =>
@@ -47,7 +55,16 @@ const init = () => {
             currentPosition: userPos,
           });
           clear();
-          for (let i = 0; i < grid.indexes[1]; i++) {
+          const mob = Mob.mobs.PURPLE;
+          for (let a = 0; a < grid.indexes[1] / 2; a++) {
+            const pos = Layout.getPosition(a);
+            const { x, y } = Alignment.align(
+              pos,
+              Position.createBySize(mob.width, mob.height)
+            );
+            Mob.draw(mob, x[0], y[0]);
+          }
+          for (let i = 0; i <= grid.indexes[1]; i++) {
             ctx.beginPath();
 
             ctx.strokeStyle = "#f1f1f1";
@@ -79,7 +96,16 @@ const init = () => {
             currentPosition: userPos,
           });
           clear();
-          for (let i = 0; i < grid.indexes[1]; i++) {
+          const mob = Mob.mobs.PURPLE;
+          for (let a = 0; a < grid.indexes[1] / 2; a++) {
+            const pos = Layout.getPosition(a);
+            const { x, y } = Alignment.align(
+              pos,
+              Position.createBySize(mob.width, mob.height)
+            );
+            Mob.draw(mob, x[0], y[0]);
+          }
+          for (let i = 0; i <= grid.indexes[1]; i++) {
             ctx.beginPath();
 
             ctx.strokeStyle = "#f1f1f1";

@@ -274,8 +274,8 @@ const MOB_RED_PATHS = [
   0,
   10,
 ];
-export default {
+export default Object.freeze({
   MOB_PURPLE_PATHS,
   MOB_GREEN_PATHS,
   MOB_RED_PATHS,
-};
+});

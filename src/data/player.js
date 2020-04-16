@@ -35,6 +35,6 @@ const PLAYER_PATHS = [
   20,
 ];
 
-export default {
+export default Object.freeze({
   PLAYER_PATHS,
-};
+});
