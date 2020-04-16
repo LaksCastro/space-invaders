@@ -12,16 +12,19 @@ let grid = null;
 const init = () => {
   grid = Layout.init();
 
-  const mob = Mob.mobs.GREEN;
+  const mobs = [Mob.mobs.RED, Mob.mobs.PURPLE, Mob.mobs.GREEN];
 
-  const containerPosition = Layout.getPosition(0);
+  for (let i = 0; i < 3; i++) {
+    const mob = mobs[i];
 
-  const { x, y } = Alignment.align(
-    containerPosition,
-    Position.createBySize(mob.width, mob.height)
-  );
-
-  Mob.draw(mob, x[0], y[0]);
+    const containerPosition = Layout.getPosition(i);
+    console.log(containerPosition);
+    const { x, y } = Alignment.align(
+      containerPosition,
+      Position.createBySize(mob.width, mob.height)
+    );
+    Mob.draw(mob, x[0], y[0]);
+  }
 
   // console.log(Layout.getNextPositionFrom(0));
 };

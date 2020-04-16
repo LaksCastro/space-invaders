@@ -44,7 +44,7 @@ const mobs = {
     draw: (ctx, initialX, initialY) => {
       // Draw Mob Body
       ctx.beginPath();
-      ctx.fillStyle = "#7855F5";
+      ctx.fillStyle = "#05FD7D";
 
       const steps = mobs_paths.MOB_GREEN_PATHS;
 
@@ -70,6 +70,29 @@ const mobs = {
     width: 60,
     height: 40,
     color: "#FE4E60",
+    draw: (ctx, initialX, initialY) => {
+      // Draw Mob Body
+      ctx.beginPath();
+      ctx.fillStyle = "#FE4E60";
+
+      const steps = mobs_paths.MOB_RED_PATHS;
+
+      for (let a = 0; a < steps.length; a += 2) {
+        const x = steps[a];
+        const y = steps[a + 1];
+        ctx.lineTo(initialX + x, initialY + y);
+      }
+      ctx.closePath();
+      ctx.fill();
+
+      // Draw Mob Eyes
+      ctx.beginPath();
+      ctx.fillStyle = "#020402";
+      ctx.rect(initialX + 15, initialY + 15, 10, 5);
+      ctx.rect(initialX + 35, initialY + 15, 10, 5);
+      ctx.closePath();
+      ctx.fill();
+    },
   },
 };
 
