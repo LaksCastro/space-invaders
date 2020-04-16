@@ -11,7 +11,7 @@ const align = (container, contentSize) => {
   const contentY1 = containerH - contentH / 2;
   const contentY2 = contentY1 + contentH;
 
-  return Position.create(contentX1, contentY1, contentX2, contentY2);
+  return Position.createByCoord(contentX1, contentY1, contentX2, contentY2);
 };
 
 export default Object.freeze({

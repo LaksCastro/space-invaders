@@ -2,15 +2,27 @@ import Keyboard from "./keyboard";
 
 import Mob from "./mob";
 import Layout from "./layout";
+import Position from "./position";
 import State from "./state";
 
+import Alignment from "./alignment";
+
+let grid = null;
+
 const init = () => {
-  console.log("iniciou");
+  grid = Layout.init();
 
-  const grid = Layout.init();
+  const mob = Mob.mobs.PURPLE;
 
-  console.log(grid);
-  console.log(Layout.getPosition(22));
+  const containerPosition = Layout.getPosition(0);
+
+  const { x, y } = Alignment.align(
+    containerPosition,
+    Position.createBySize(mob.width, mob.height)
+  );
+
+  Mob.draw(mob, x[0], y[0]);
+
   // console.log(Layout.getNextPositionFrom(0));
 };
 
