@@ -25,10 +25,10 @@ const to = (
     velocity: 2,
   }
 ) => {
-  const {
-    limitX: [startX, endX],
-    limitY: [startY, endY],
-  } = Layout;
+  const { limitX, limitY } = Layout;
+
+  const [startX, endX] = limitX();
+  const [startY, endY] = limitY();
 
   const { velocity: vel, direction, currentPosition } = userConfig;
 
@@ -36,6 +36,7 @@ const to = (
 
   const { x, y } = currentPosition;
 
+  console.log(currentPosition);
   const [x1, x2] = x;
   const [y1, y2] = y;
 
@@ -44,10 +45,11 @@ const to = (
 
   velocity = null;
 
-  if (newX1 < startX) return false;
-  if (newX2 > endX) return false;
-  if (newY1 < startY) return false;
-  if (newX2 > endY) return false;
+  if (newX1 < startX) return currentPosition;
+  if (newX2 > endX) return currentPosition;
+  if (newY1 < startY) return currentPosition;
+
+  if (newY2 > endY) return currentPosition;
 
   return Position.createByCoord(newX1, newY1, newX2, newY2);
 };

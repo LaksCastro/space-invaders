@@ -73,8 +73,8 @@ const init = () => {
 // ======================
 // TO GET X AND Y LIMIT
 // ======================
-const limitX = () => [initialX, columnsLength * column_size];
-const limitY = () => [initialY, rowsLength * row_size];
+const limitX = () => [initialX, initialX + columnsLength * column_size];
+const limitY = () => [initialY, initialY + rowsLength * row_size];
 
 // ======================
 // TO GET MAIN POSITIONS

@@ -4,9 +4,9 @@ import ctx from "./canvas";
 // ================
 // PLAYER METADATA
 // ================
-const pixels = 8;
-const width = 40;
-const height = 40;
+const pixels = 6;
+const width = 65;
+const height = pixels * 5;
 
 // ================
 // TO DRAW PLAYER
@@ -30,4 +30,6 @@ const draw = (initialX = 0, initialY = 0) => {
 
 export default Object.freeze({
   draw,
+  width,
+  height,
 });

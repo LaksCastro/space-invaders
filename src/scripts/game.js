@@ -1,40 +1,111 @@
+import _ from "lodash";
+
+import ctx from "./canvas";
+
 import Keyboard from "./keyboard";
+
+import { clear } from "./canvas";
 
 import Mob from "./mob";
 import Layout from "./layout";
 import Position from "./position";
 import State from "./state";
 import Player from "./player";
+import Move from "./move";
 
 import Alignment from "./alignment";
+import move from "./move";
 
 let grid = null;
 
 const init = () => {
   grid = Layout.init();
 
-  const mob = Mob.mobs.GREEN;
+  let userPos = null;
 
-  const containerPosition = Layout.getPosition(Layout.centerCenter());
+  const containerPosition = Layout.getPosition(Layout.bottomCenter());
   const { x, y } = Alignment.align(
     containerPosition,
-    Position.createBySize(mob.width, mob.height)
+    Position.createBySize(Player.width, Player.height)
+  );
+  userPos = Position.createByCoord(
+    x[0],
+    y[0],
+    x[0] + Player.width,
+    y[0] + Player.height
   );
   Player.draw(x[0], y[0]);
 
-  // for (let i = 0; i < 44; i++) {
-  //   const mob = Mob.mobs.GREEN;
+  console.log(userPos);
+  Keyboard.init({
+    left: _.throttle(
+      () =>
+        requestAnimationFrame(() => {
+          userPos = Move.to({
+            direction: "left",
+            velocity: 20,
+            currentPosition: userPos,
+          });
+          clear();
+          for (let i = 0; i < grid.indexes[1]; i++) {
+            ctx.beginPath();
 
-  //   const containerPosition = Layout.getPosition(i);
-  //   console.log(containerPosition);
-  //   const { x, y } = Alignment.align(
-  //     containerPosition,
-  //     Position.createBySize(mob.width, mob.height)
-  //   );
-  //   Mob.draw(mob, x[0], y[0]);
-  // }
+            ctx.strokeStyle = "#f1f1f1";
 
-  // console.log(Layout.getNextPositionFrom(0));
+            const { x, y } = Layout.getPosition(i);
+            ctx.lineTo(x[0], y[0]);
+            ctx.lineTo(x[1], y[0]);
+
+            ctx.moveTo(x[0], y[1]);
+            ctx.lineTo(x[0], y[1]);
+            ctx.lineTo(x[1], y[1]);
+
+            ctx.stroke();
+          }
+          const { x, y } = Alignment.align(
+            userPos,
+            Position.createBySize(Player.width, Player.height)
+          );
+          Player.draw(x[0], y[0]);
+        }),
+      20
+    ),
+    right: _.throttle(
+      () =>
+        requestAnimationFrame(() => {
+          userPos = Move.to({
+            direction: "right",
+            velocity: 20,
+            currentPosition: userPos,
+          });
+          clear();
+          for (let i = 0; i < grid.indexes[1]; i++) {
+            ctx.beginPath();
+
+            ctx.strokeStyle = "#f1f1f1";
+
+            const { x, y } = Layout.getPosition(i);
+            ctx.lineTo(x[0], y[0]);
+            ctx.lineTo(x[1], y[0]);
+
+            ctx.moveTo(x[0], y[1]);
+
+            ctx.lineTo(x[0], y[1]);
+            ctx.lineTo(x[1], y[1]);
+
+            ctx.stroke();
+          }
+          const { x, y } = Alignment.align(
+            userPos,
+            Position.createBySize(Player.width, Player.height)
+          );
+          Player.draw(x[0], y[0]);
+        }),
+      20
+    ),
+
+    up: () => {},
+  });
 };
 
 export default Object.freeze({
