@@ -12,7 +12,7 @@ let grid = null;
 const init = () => {
   grid = Layout.init();
 
-  const mob = Mob.mobs.PURPLE;
+  const mob = Mob.mobs.GREEN;
 
   const containerPosition = Layout.getPosition(0);
 
