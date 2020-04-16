@@ -3,8 +3,8 @@ import Position from "./position";
 const align = (container, contentSize) => {
   const { x, y } = container;
 
-  const [containerX1, containerX2] = x;
-  const [containerY1, containerY2] = y;
+  const [containerX1] = x;
+  const [containerY1] = y;
 
   const { width: containerW, height: containerH } = Position.sizeOf(container);
 
