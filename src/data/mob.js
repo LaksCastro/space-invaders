@@ -88,7 +88,6 @@ const MOB_PURPLE_PATHS = [
   15,
   0,
 ];
-
 const MOB_GREEN_PATHS = [
   10,
   0,

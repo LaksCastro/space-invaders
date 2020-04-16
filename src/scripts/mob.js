@@ -11,7 +11,6 @@ const mobs = {
     pixels: 8,
     width: 40,
     height: 40,
-    color: "#7855F5",
     draw: (ctx, initialX, initialY) => {
       // Draw Mob Body
       ctx.beginPath();
@@ -40,7 +39,6 @@ const mobs = {
     pixels: 11,
     width: 55,
     height: 40,
-    color: "#05FD7D",
     draw: (ctx, initialX, initialY) => {
       // Draw Mob Body
       ctx.beginPath();
@@ -69,7 +67,6 @@ const mobs = {
     pixels: 12,
     width: 60,
     height: 40,
-    color: "#FE4E60",
     draw: (ctx, initialX, initialY) => {
       // Draw Mob Body
       ctx.beginPath();

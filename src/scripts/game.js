@@ -12,9 +12,54 @@ let grid = null;
 const init = () => {
   grid = Layout.init();
 
-  const mobs = [Mob.mobs.RED, Mob.mobs.PURPLE, Mob.mobs.GREEN];
+  const mobs = [
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+    Mob.mobs.RED,
+  ];
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 44; i++) {
     const mob = mobs[i];
 
     const containerPosition = Layout.getPosition(i);

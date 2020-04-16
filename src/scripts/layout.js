@@ -6,8 +6,8 @@ let grid = {
   rowsLength: null,
 };
 
-const column_size = 64;
-const row_size = 60;
+const column_size = 65;
+const row_size = 50;
 
 let columnsLength = null;
 let rowsLength = null;
