@@ -1,3 +1,6 @@
+// ==========================================
+// CENTRALIZE CANVAS CONTEXT IN A UNIC FILE
+// ==========================================
 const canvas = document.getElementById("canvas-game");
 
 canvas.width = innerWidth;

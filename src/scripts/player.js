@@ -1,10 +1,16 @@
 import paths from "../data/player";
 import ctx from "./canvas";
 
+// ================
+// PLAYER METADATA
+// ================
 const pixels = 8;
 const width = 40;
 const height = 40;
 
+// ================
+// TO DRAW PLAYER
+// ================
 const draw = (initialX = 0, initialY = 0) => {
   // Draw Player
   ctx.beginPath();

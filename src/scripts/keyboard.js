@@ -1,3 +1,7 @@
+// ============================================
+// CENTRALIZE KEYBOARD LISTENERS IN UNIC FILE
+// ============================================
+
 let onArrowLeft, onArrowRight, onArrowUp;
 
 const keys_codes = {

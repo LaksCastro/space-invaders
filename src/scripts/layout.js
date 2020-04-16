@@ -1,11 +1,17 @@
 import Position from "./position";
 
+// =============================
+// VAR WITH MAIN METADATA
+// =============================
 let grid = {
   indexes: [],
   columnsLength: null,
   rowsLength: null,
 };
 
+// =============================
+// STATE OF LAYOUT
+// =============================
 const column_size = 65;
 const row_size = 50;
 
@@ -15,6 +21,9 @@ let rowsLength = null;
 let initialX = null;
 let initialY = null;
 
+// =============================
+// GET POSITION BY MATRIZ INDEX
+// =============================
 const getPosition = (index) => {
   const row = Math.floor(index / columnsLength);
   const column = index - row * columnsLength;
@@ -27,7 +36,6 @@ const getPosition = (index) => {
 
   return Position.createByCoord(x1, y1, x2, y2);
 };
-
 const getNextPositionFrom = (index) => {
   const nextIndex = index + 1;
 
@@ -35,7 +43,6 @@ const getNextPositionFrom = (index) => {
 
   return getPosition(nextIndex);
 };
-
 const getPrevPositionFrom = (index) => {
   const nextIndex = index - 1;
 
@@ -44,6 +51,9 @@ const getPrevPositionFrom = (index) => {
   return getPosition(nextIndex);
 };
 
+// =============================
+// FUNCTION TO INIT LAYOUT LOGIC
+// =============================
 const init = () => {
   initialX = (innerWidth % column_size) / 2;
   columnsLength = Math.floor(innerWidth / column_size);
@@ -60,6 +70,15 @@ const init = () => {
   return grid;
 };
 
+// ======================
+// TO GET X AND Y LIMIT
+// ======================
+const limitX = () => [initialX, columnsLength * column_size];
+const limitY = () => [initialY, rowsLength * row_size];
+
+// ======================
+// TO GET MAIN POSITIONS
+// ======================
 const centerColumn = () => Math.floor(columnsLength / 2);
 const centerRow = () => Math.floor(rowsLength / 2) * columnsLength;
 const bottomRow = () => Math.floor(rowsLength - 1) * columnsLength;
@@ -91,4 +110,7 @@ export default Object.freeze({
   topLeft,
   bottomCenter,
   topCenter,
+
+  limitX,
+  limitY,
 });

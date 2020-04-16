@@ -1,5 +1,11 @@
 import Position from "./position";
 
+// ==========================================
+// RECEIVE A CONTAINER BY X,Y POSITION
+// AND A CONTENT WIDTH AND HEIGHT
+// AND RETURN X, Y,
+// REPRESENTING A CENTERED POSITION INSIDE A CONTAINER
+// ==========================================
 const align = (container, contentSize) => {
   const { x, y } = container;
 
